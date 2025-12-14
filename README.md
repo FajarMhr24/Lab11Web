@@ -1,4 +1,4 @@
-## config.php (Konfigurasi Database)
+# config.php (Konfigurasi Database)
 File ini berfungsi sebagai tempat penyimpanan data sensitif dan konfigurasi utama aplikasi.
 
 Tujuan: Menyimpan kredensial database dalam variabel array asosiatif bernama `$config`.
@@ -13,7 +13,7 @@ Tujuan: Menyimpan kredensial database dalam variabel array asosiatif bernama `$c
 
 `'db_name'`: Nama database yang akan digunakan (`latihan_oop`).
 
-## index.php (Gateway / Front Controller)
+# index.php (Gateway / Front Controller)
 
 Ini adalah file utama yang akan dijalankan pertama kali saat user membuka website. File ini mengatur logika routing (pemetaan URL ke file).
 
@@ -87,7 +87,7 @@ include "template/footer.php";
 
 * Jika tidak ada: Menampilkan pesan error sederhana bahwa modul tidak ditemukan.
 
-## header.php (Bagian Atas Halaman)
+# header.php (Bagian Atas Halaman)
 
 File ini bertugas membuka struktur halaman web.
 
@@ -105,7 +105,7 @@ Perhatikan bahwa `div` ini dibuka tetapi belum ditutup. Ini sengaja, karena "isi
 
 * Navigasi (`nav`): Membuat menu "Home" dan "Artikel" agar pengguna bisa berpindah halaman. Linknya mengarah ke rute yang ditangani oleh `index.php` Anda sebelumnya.
 
-## footer.php (bagian bawah halaman)
+# footer.php (bagian bawah halaman)
 
 File ini bertugas menutup struktur halaman yang dibuka oleh header.
 
@@ -120,7 +120,7 @@ Tag penutup `</div>` ini adalah pasangan dari `<div class="container">` yang ada
 * Footer Info: Menampilkan informasi hak cipta (Copyright) di bagian paling bawah.
 * Menutup HTML: Menutup tag `</body>` dan `</html>`, menandakan bahwa kode HTML halaman tersebut telah selesai.
 
-## tambah.php (Create - Menambah Data)
+# tambah.php (Create - Menambah Data)
 
 File ini menangani proses pembuatan artikel baru menggunakan bantuan class Form (library tambahan yang Anda sertakan di awal).
 
@@ -133,7 +133,7 @@ File ini menangani proses pembuatan artikel baru menggunakan bantuan class Form 
     2. `$db->insert(...)`: Mengirim data `judul` dan `isi` ke tabel `artikel`.
     3. `header(...)`: Jika berhasil, user langsung dialihkan (redirect) kembali ke halaman daftar artikel.
 
-## index.php (Read - Menampilkan Daftar)
+# index.php (Read - Menampilkan Daftar)
 File ini adalah halaman utama modul artikel yang berfungsi menampilkan tabel semua data yang ada di database.
 * mengambil data
     * `$db->query("SELECT * FROM artikel")`: Meminta semua data dari tabel artikel.
@@ -145,7 +145,7 @@ File ini adalah halaman utama modul artikel yang berfungsi menampilkan tabel sem
   ```
 Kode ini mengambil data baris demi baris dari database. Selama datanya masih ada, kode HTML di dalamnya (baris tabel `<tr>`) akan terus dicetak berulang-ulang untuk menampilkan Judul dan Isi artikel.
 
-## ubah.php (Update - Mengedit Data)
+# ubah.php (Update - Mengedit Data)
 
 File ini sedikit lebih kompleks karena harus mengambil data lama terlebih dahulu sebelum mengubahnya. Perhatikan bahwa file ini menggunakan HTML manual, berbeda dengan `tambah.php` yang menggunakan class `Form`.
 
@@ -163,7 +163,7 @@ File ini sedikit lebih kompleks karena harus mengambil data lama terlebih dahulu
     1. `$db->update(...)`: Mengupdate data di database berdasarkan ID yang sedang diedit.
     2. `header(...)`: Mengalihkan user kembali ke halaman index setelah selesai.
  
-## database.php (Pengelola Koneksi & Data)
+# database.php (Pengelola Koneksi & Data)
 
 Class ini berfungsi sebagai pembungkus (wrapper) untuk fungsi-fungsi database MySQLi. Tujuannya agar Anda tidak perlu menulis kode koneksi atau query SQL yang panjang berulang-ulang di setiap halaman.
 
@@ -184,7 +184,7 @@ Class ini berfungsi sebagai pembungkus (wrapper) untuk fungsi-fungsi database My
     * Sama seperti insert, ia menerima Array data baru.
     * Ia akan mengubah array tersebut menjadi format `kolom='isi'` untuk perintah SQL `UPDATE`.
 
-## form.php (Pembuat Formulir Otomatis)
+# form.php (Pembuat Formulir Otomatis)
 Class ini adalah Form Generator. Fungsinya untuk membuat kode HTML `<form>` secara otomatis menggunakan PHP, sehingga Anda tidak perlu mengetik tag HTML `<input>`, `<label>`, atau `<table>` satu per satu.
 
 * Menampung Data (`addField`) Fungsi ini merekam kolom apa saja yang ingin ditampilkan di form.
@@ -200,3 +200,4 @@ Class ini adalah Form Generator. Fungsinya untuk membuat kode HTML `<form>` seca
         * Jika `password`, buat input yang teksnya tersembunyi.
         * Jika tidak ditentukan, defaultnya adalah `text` biasa.
       
+
